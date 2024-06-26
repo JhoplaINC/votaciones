@@ -1,7 +1,7 @@
 <?php
-require_once 'conexion.php';
+require_once 'assets\php\database\conexion.php';
 
-class VotanteModel {
+class VotantesModel {
     private $conn;
 
     public function __construct($db) {
@@ -18,5 +18,5 @@ class VotanteModel {
     }
 }
 
-$votanteModel = new VotanteModel($conn);
+$votantesModel = new VotantesModel($conn);
 ?>

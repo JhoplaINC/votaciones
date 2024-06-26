@@ -1,22 +1,25 @@
 <?php
-require_once 'conexion.php';
+require_once 'assets\php\database\conexion.php';
 
-class CandidatoModel {
+class CandidatosModel {
     private $conn;
 
     public function __construct($db) {
         $this->conn = $db;
     }
 
-    public function getCandidatoById($id) {
-        $sql = "SELECT * FROM candidatos WHERE id = ?";
+    public function getCandidatoByRegionNum($num) {
+        $sql = "SELECT c.id, c.nombre_completo FROM candidatos AS c
+                INNER JOIN regiones AS r
+                ON c.region_id = r.id
+                WHERE r.numero = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $num);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 
-$candidatoModel = new CandidatoModel($conn);
+$candidatosModel = new CandidatosModel($conn);
 ?>

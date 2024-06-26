@@ -1,14 +1,14 @@
 <?php
-require_once 'conexion.php';
+require_once 'assets\php\database\conexion.php';
 
-class RegionModel {
+class RegionesModel {
     private $conn;
 
     public function __construct($db) {
         $this->conn = $db;
     }
 
-    public function getAllRegions() {
+    public function getAllRegiones() {
         $sql = "SELECT * FROM regiones";
         $result = $this->conn->query($sql);
         if ($result->num_rows > 0) {
@@ -28,5 +28,5 @@ class RegionModel {
     }
 }
 
-$regionModel = new RegionModel($conn);
+$regionesModel = new RegionesModel($conn);
 ?>

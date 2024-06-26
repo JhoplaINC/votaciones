@@ -1,7 +1,7 @@
 <?php
-require_once 'conexion.php';
+require_once 'assets\php\database\conexion.php';
 
-class ComunaModel {
+class ComunasModel {
     private $conn;
 
     public function __construct($db) {
@@ -28,5 +28,5 @@ class ComunaModel {
     }
 }
 
-$comunaModel = new ComunaModel($conn);
+$comunasModel = new ComunasModel($conn);
 ?>
