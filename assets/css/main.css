@@ -1,0 +1,109 @@
+:root {
+    --pogsorin-color-1: rgb(176, 226, 255);
+    --pogsorin-color-2: rgb(152, 255, 230);
+    --pogsorin-color-3: rgb(255, 204, 170);
+    --pogsorin-color-4: rgb(255, 247, 153);
+    --pogsorin-color-5: rgb(192, 192, 192);
+    --pogsorin-color-6: rgb(255, 255, 255);
+
+    --pogsorin-color-1-hover: rgb(136, 226, 255);
+    --pogsorin-color-2-hover: rgb(112, 255, 230);
+    --pogsorin-color-3-hover: rgb(255, 184, 170);
+    --pogsorin-color-4-hover: rgb(255, 227, 153);
+    --pogsorin-color-5-hover: rgb(172, 172, 172);
+    --pogsorin-color-6-hover: rgb(235, 235, 235);
+
+    --bgc: rgb(247, 247, 247);
+    --main-txt-color: rgb(10, 2, 58);
+    --main-txt-color-hover: rgb(40, 62, 78);
+    --main-txt-visited: rgb(28, 112, 161);
+    --secondary-txt-color: rgb(22, 27, 58);
+    --active-btn-bgc-color: rgb(29, 21, 73);
+    --active-btn-txt-color: rgb(238, 238, 241);
+
+    --shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(0, 0, 0, 0.05);
+    --active-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), 0px 6px 10px rgba(0, 0, 0, 0.05);
+    --shadow-photo: 2px 2px 20px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* NAVBAR STYLE */
+.navbar {
+    background-color: var(--pogsorin-color-1);
+}
+
+/* FOOTER STYLE */
+footer {
+    background-color: var(--pogsorin-color-1);
+    color: var(--main-txt-color);
+    display: flex;
+    font-size: 16px;
+    flex-direction: row;
+    padding: 2rem 1em;
+    height: auto;
+}
+
+footer .footer-section {
+    width: 50%;
+}
+
+footer .footer-left-section {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+}
+
+footer .br-line {
+    width: 1px;
+    height: inherit;
+    background-color: var(--main-txt-color);
+    margin-right: 45px;
+    margin-top: 2.2%;
+}
+
+footer .footer-right-section p {
+    font-size: 22px;
+}
+
+footer .footer-right-section ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+footer .footer-right-section ul li {
+    list-style: none;
+    margin-bottom: 7px;
+}
+
+footer .footer-right-section ul li fa-icon {
+    font-size: 20px;
+}
+
+footer .footer-right-section ul li a {
+    color: var(--main-txt-color);
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+footer .footer-right-section ul li a:hover {
+    text-decoration: underline;
+}
+
+footer .footer-right-section ul li a:visited {
+    color: var(--main-txt-visited);
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+    }
+
+    footer .footer-section {
+        width: 100%;
+    }
+
+    footer .br-line {
+        width: 100%;
+        height: 1px;
+        margin-bottom: 10px;
+    }   
+}
