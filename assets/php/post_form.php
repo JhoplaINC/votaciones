@@ -43,17 +43,21 @@ function validarRut($rut) {
     return $dv == $residuo;
 }
 
-function separarRutDv($rut) {
-    $rut = str_replace(['-'], '', $rut);
+function formatearYSepararRut($rut) {
+    $rut = str_replace(['.', '-'], '', $rut);
 
     if (strlen($rut) < 2) {
         return false;
     }
 
+    // Separar el número del DV
     $numero = substr($rut, 0, -1);
     $dv = substr($rut, -1);
 
-    return ['numero' => $numero, 'dv' => $dv];
+    // Agregar puntos al número
+    $numeroConPuntos = number_format($numero, 0, '', '.');
+
+    return ['numero' => $numeroConPuntos, 'dv' => $dv];
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -111,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $resRut = separarRutDv($_POST['rut']);
+    $resRut = formatearYSepararRut($_POST['rut']);
     
     $regionComunaId = $regionesComunasModel->getRegionAndComunaIdByIds($_POST['region'], $_POST['comuna']);
 
@@ -126,8 +130,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $votante_id = $votantesModel->createVotante($values);
     
-    if($votante_id['error']) {
+    if($votante_id['error'] == 'duplicate_email') {
         $errors['err_form_email'] = "El email que se intentó registrar, ya existe. Por lo que el voto no se registrará";
+        $_SESSION['errors'] = $errors;
+        header('Location: ./../../form.php');
+        exit();
+    } else if($votante_id['error'] == 'duplicate_rut') {
+        $errors['err_form_rut'] = "El rut que se intentó registrar, ya existe. Por lo que el voto no se registrará";
         $_SESSION['errors'] = $errors;
         header('Location: ./../../form.php');
         exit();
