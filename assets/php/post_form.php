@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
-        header('Location: ./../../form.php');
+        header('Location: ./../../formulario.php');
         exit();
     }
 
@@ -133,12 +133,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($votante_id['error'] == 'duplicate_email') {
         $errors['err_form_email'] = "El email que se intentó registrar, ya existe. Por lo que el voto no se registrará";
         $_SESSION['errors'] = $errors;
-        header('Location: ./../../form.php');
+        header('Location: ./../../formulario.php');
         exit();
     } else if($votante_id['error'] == 'duplicate_rut') {
         $errors['err_form_rut'] = "El rut que se intentó registrar, ya existe. Por lo que el voto no se registrará";
         $_SESSION['errors'] = $errors;
-        header('Location: ./../../form.php');
+        header('Location: ./../../formulario.php');
         exit();
     } else {
         if ($votante_id !== false) {
@@ -155,8 +155,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $votosCandidatosModel->createVotoCandidato($_POST['candidato'], $votante_id);
 
-            $_SESSION['success'] = "El votante junto a su voto, fueron registrados exitosamente!";
-            header('Location: ./../../form.php');
+            $_SESSION['success_header'] = "¡Felicidades!";
+            $_SESSION['success_body'] = "Tu voto fue registrado exitosamente";
+            header('Location: ./../../formulario.php');
             exit();
         } else {
             echo "Error al crear el votante.";

@@ -12,7 +12,7 @@ unset($_SESSION['errors']);
 $regiones = $regionesModel->getRegiones();
 $canales = $canalesModel->getCanales();
 
-$title = "Página del formulario";
+$title = "Formulario de votación";
 $content = <<<HTML
     <form action="assets/php/post_form.php" method="POST" class="formulario-votacion">
         <p class="form-title">Formulario de votación</p>
@@ -122,7 +122,7 @@ $content .= <<<HTML
         </div>
     </form>
 HTML;
-if (isset($_SESSION['success'])) {
+if (isset($_SESSION['success_header'])) {
 $content .= <<<HTML
 <button type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#successModal" id="launchSuccessModal">
     Launch demo modal
@@ -131,14 +131,16 @@ $content .= <<<HTML
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="successModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="successModalLabel">{$_SESSION['success_header']}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            {$_SESSION['success']}
+                <p>
+                    {$_SESSION['success_body']}
+                </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="close-modal" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -152,7 +154,8 @@ $content .= <<<HTML
     });
 </script>
 HTML;
-    unset($_SESSION['success']); 
+    unset($_SESSION['success_header']); 
+    unset($_SESSION['success_body']); 
 }
 include 'plantilla.php';
 ?>

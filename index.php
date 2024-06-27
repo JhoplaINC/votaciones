@@ -1,5 +1,5 @@
 <?php
-$title = "Index";
+$title = "Inicio";
 $content = 
 <<<HTML
     <section>

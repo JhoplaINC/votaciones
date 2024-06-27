@@ -186,6 +186,20 @@ footer .footer-right-section ul li a:visited {
     color: var(--main-txt-visited);
 }
 
+/* MODAL STYLE */
+.modal .modal-dialog .modal-content .modal-footer .close-modal {
+    background-color: var(--pogsorin-color-1);
+    border: none;
+    border-radius: 5px;
+    color: var(--main-txt-color);
+    padding: 5px 15px;
+    transition: .3s;
+}
+
+.modal .modal-dialog .modal-content .modal-footer .close-modal:hover {
+    background-color: var(--pogsorin-color-1-hover);
+}
+
 @media screen and (max-width: 768px) {
     footer {
         flex-direction: column;
