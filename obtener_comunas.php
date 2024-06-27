@@ -2,11 +2,11 @@
 require_once 'assets/php/models/regiones_comunas.model.php';
 
 if (isset($_GET['id'])) {
-    $regionNum = $_GET['id'];
+    $regionId = $_GET['id'];
 
     $regionesComunasModel = new RegionesComunasModel($conn); 
 
-    $comunas = $regionesComunasModel->getComunasByRegionNum($regionNum);
+    $comunas = $regionesComunasModel->getComunasByRegionId($regionId);
 
     header('Content-Type: application/json');
     echo json_encode($comunas);

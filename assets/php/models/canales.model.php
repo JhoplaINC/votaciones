@@ -1,5 +1,5 @@
 <?php
-require_once 'assets\php\database\conexion.php';
+require_once __DIR__ . '/../database/conexion.php';
 
 class CanalesModel {
     private $conn;

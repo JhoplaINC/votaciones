@@ -1,5 +1,5 @@
 <?php
-require_once 'assets\php\database\conexion.php';
+require_once __DIR__ . '/../database/conexion.php';
 
 class VotanteCanalesModel {
     private $conn;
@@ -15,6 +15,19 @@ class VotanteCanalesModel {
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_assoc();
+    }
+
+    public function createVotanteCanal($votante_id, $canal_id) {
+        $sql = "INSERT INTO votante_canales
+                (votante_id, canal_id)
+                VALUES (?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ii", $votante_id, $canal_id);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

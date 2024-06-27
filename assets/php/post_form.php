@@ -1,11 +1,14 @@
 <?php
+require_once 'models\votantes.model.php';
+require_once 'models\votante_canales.model.php';
+require_once 'models\votos_candidato.model.php';
+require_once 'models\regiones_comunas.model.php';
+
 session_start();
 
 function validarRut($rut) {
-    // Eliminar puntos y guiones
     $rut = str_replace(['.', '-'], '', $rut);
 
-    // Separar número y dígito verificador
     if (strlen($rut) < 2) {
         return false;
     }
@@ -40,10 +43,22 @@ function validarRut($rut) {
     return $dv == $residuo;
 }
 
+function separarRutDv($rut) {
+    $rut = str_replace(['-'], '', $rut);
+
+    if (strlen($rut) < 2) {
+        return false;
+    }
+
+    $numero = substr($rut, 0, -1);
+    $dv = substr($rut, -1);
+
+    return ['numero' => $numero, 'dv' => $dv];
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errors = [];
     
-    // Validaciones
     $fullname = trim($_POST['fullname'] ?? '');
     if (empty($fullname)) {
         $errors['err_form_nombre'] = "El nombre completo es obligatorio.";
@@ -90,22 +105,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['err_form_canales'] = "Debe seleccionar al menos dos opciones de cómo se enteró de nosotros.";
     }
 
-    // Si hay errores, redirigir de vuelta al formulario con los errores en la sesión
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
         header('Location: ./../../form.php');
         exit();
     }
+
+    $resRut = separarRutDv($_POST['rut']);
     
-    // Procesar los datos (guardar en la base de datos, etc.)
-    echo $_POST['fullname'];
-    echo $_POST['alias'];
-    echo $_POST['rut'];
-    echo $_POST['email'];
-    echo $_POST['region'];
-    echo $_POST['comuna'];
-    echo $_POST['candidato'];
-    print_r($_POST['canales']);
+    $regionComunaId = $regionesComunasModel->getRegionAndComunaIdByIds($_POST['region'], $_POST['comuna']);
+
+    $values = [
+        'fullname' => $_POST['fullname'],
+        'alias' => $_POST['alias'],
+        'numero' => $resRut['numero'],
+        'dv' => $resRut['dv'],
+        'email' => $_POST['email'],
+        'id' => $regionComunaId['id']
+    ];
+
+    $votante_id = $votantesModel->createVotante($values);
+    print_r($votante_id);
+    echo $votante_id;
+    if($votante_id['error']) {
+        $errors['err_form_email'] = "El email que se intentó registrar, ya existe. Por lo que el voto no se registrará";
+        $_SESSION['errors'] = $errors;
+        header('Location: ./../../form.php');
+        exit();
+    } else {
+        if ($votante_id !== false) {
+            if (isset($_POST['canales']) && is_array($_POST['canales'])) {
+                foreach ($_POST['canales'] as $canal) {
+                    $canal_id = substr($canal, strpos($canal, '-') + 1);
+                    
+                    if (!$votanteCanalesModel->createVotanteCanal($votante_id, $canal_id)) {
+                        echo "Error al asignar canal al votante";
+                        break;
+                    }
+                }
+            }
+
+            $_SESSION['success'] = "El votante fue registrado exitosamente!";
+            header('Location: ./../../form.php');
+            exit();
+        } else {
+            echo "Error al crear el votante.";
+        }
+    }
 } else {
     echo "Método no permitido.";
 }

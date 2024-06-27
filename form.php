@@ -66,7 +66,7 @@ HTML;
 
 foreach ($regiones as $region) {
     $content .= <<<HTML
-                <option value="{$region['numero']}">{$region['nombre']}</option>
+                <option value="{$region['id']}">{$region['nombre']}</option>
 HTML;
 }
 
