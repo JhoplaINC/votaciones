@@ -39,7 +39,7 @@ main {
 /* NAVBAR STYLE */
 .navbar {
     background-color: var(--pogsorin-color-1);
-    height: 75px;
+    min-height: 75px;
 }
 
 .nav-item .nav-link {
