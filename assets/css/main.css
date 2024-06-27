@@ -168,6 +168,8 @@ main {
 
 .form-group i {
     background-color: var(--pogsorin-color-4);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
     padding: 10px 0;
     text-align: center;
     width: 5%;
@@ -175,6 +177,8 @@ main {
 
 .form-group input, .form-group select {
     border: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
     width: 95%;
 }
 
