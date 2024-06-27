@@ -71,8 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $alias = trim($_POST['alias'] ?? '');
     if (empty($alias)) {
         $errors['err_form_alias'] = "El alias es obligatorio.";
-    } elseif (!preg_match('/^[a-zA-Z0-9]{5,}$/', $alias)) {
-        $errors['err_form_alias'] = "El alias debe tener al menos 5 caracteres y contener solo letras y números.";
+    } elseif (!preg_match('/^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{5,}$/', $alias)) {
+        $errors['err_form_alias'] = "El alias debe tener al menos 5 caracteres, incluir al menos un número, y contener solo letras y números.";
     }
     
     $rut = trim($_POST['rut'] ?? '');
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
-        header('Location: ./../../formulario.php');
+        header('Location: ./../../formulario');
         exit();
     }
 
@@ -133,12 +133,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($votante_id['error'] == 'duplicate_email') {
         $errors['err_form_email'] = "El email que se intentó registrar, ya existe. Por lo que el voto no se registrará";
         $_SESSION['errors'] = $errors;
-        header('Location: ./../../formulario.php');
+        header('Location: ./../../formulario');
         exit();
     } else if($votante_id['error'] == 'duplicate_rut') {
         $errors['err_form_rut'] = "El rut que se intentó registrar, ya existe. Por lo que el voto no se registrará";
         $_SESSION['errors'] = $errors;
-        header('Location: ./../../formulario.php');
+        header('Location: ./../../formulario');
         exit();
     } else {
         if ($votante_id !== false) {
@@ -157,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $_SESSION['success_header'] = "¡Felicidades!";
             $_SESSION['success_body'] = "Tu voto fue registrado exitosamente";
-            header('Location: ./../../formulario.php');
+            header('Location: ./../../formulario');
             exit();
         } else {
             echo "Error al crear el votante.";
