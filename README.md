@@ -29,7 +29,7 @@ En cuanto al código, deberemos ejecutar nuestro entorno de desarrollo para come
 Lo único que necesitaremos hacer, es ejecutar nuestro entorno de desarrollo (ya sea WAMP, XAMPP, Laragon o cualquiera que vayamos a utilizar) y dirigirnos a la ruta localhost/votaciones.
 Una vez estemos en el sitio web, veremos que no necesitamos nada más, pues no hay sistema de login o de vistas privadas, solo tenemos /index y /formulario.
 
-Una vez estemos en el formulario, podremmos comenzar a crear entradas en la base de datos.
+Una vez estemos en el formulario, podremos comenzar a crear entradas en la base de datos.
 
 ##### Información
 
