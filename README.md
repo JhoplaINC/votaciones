@@ -42,7 +42,7 @@ El formulario está desarrollado para aserciorarse de que todo esté correcto:
     1. 11670732-2
     2. 116707322
     3. 11.670.732-2
-* El campo 'rut' único, por lo que no podrá votar 2 veces con el mismo rut.
+* El campo 'rut' es único, por lo que no podrá votar 2 veces con el mismo rut.
 * El campo 'rut' está divido en rut y dv (dígito verificador) en la base de datos.
 * El campo 'email' es obligatorio y debe tener un formato estándar (email@dominio.com).
 * El campo 'email' es único, por lo que no podrá votar 2 veces con el mismo email.
