@@ -44,7 +44,7 @@ main {
 
 .nav-item .nav-link {
     color: var(--navbar-color);
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 425;
     margin: 0 20px;
 }
@@ -150,9 +150,10 @@ main {
 .formulario-votacion .form-group.submit-form input {
     background-color: var(--pogsorin-color-4);
     border-radius: 8px;
+    font-size: 16px;
     height: 42px;
     margin-top: 36px;
-    padding: 10px 20px;
+    padding: 10px 34px;
     transition: .3s;
     width: fit-content;
 }

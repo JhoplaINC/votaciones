@@ -90,7 +90,7 @@ if (!empty($errors['err_form_comuna'])) {
 $content .= <<<HTML
         </div>
         <div class="form-group">
-            <i class="fa-solid fa-location-dot"></i>
+            <i class="fa-solid fa-user"></i>
             <select name="candidato" id="candidato" disabled>
                 <option value="default">Seleccione el candidato</option>
             </select>
