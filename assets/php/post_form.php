@@ -125,8 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ];
 
     $votante_id = $votantesModel->createVotante($values);
-    print_r($votante_id);
-    echo $votante_id;
+    
     if($votante_id['error']) {
         $errors['err_form_email'] = "El email que se intentó registrar, ya existe. Por lo que el voto no se registrará";
         $_SESSION['errors'] = $errors;
@@ -145,7 +144,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
 
-            $_SESSION['success'] = "El votante fue registrado exitosamente!";
+            $votosCandidatosModel->createVotoCandidato($_POST['candidato'], $votante_id);
+
+            $_SESSION['success'] = "El votante junto a su voto, fueron registrados exitosamente!";
             header('Location: ./../../form.php');
             exit();
         } else {
