@@ -17,7 +17,8 @@ Las herramientas utilizadas fueron:
 Primero, necesitarán clonar este proyecto.
 
 Dentro de este proyecto, podrán encontrar un archivo SQL que, dicho archivo, les permitirá crear la Base de Datos que utilizaremos para gestionar los datos.
-Dicha query, nos rellenerá la Base de Datos con los datos necesarios, que serían: Canales de acercamiento, regiones del país, comunas por regiones y la conexión entre región-comuna.
+Dicha query, nos rellenerá la Base de Datos con los datos necesarios, que serían: Canales de acercamiento, regiones del país, comunas por regiones, la conexión entre región-comuna 
+y los candidatos. La cantidad de candidatos, son un total de 2 por región: 1 hombre y 1 mujer (los nombres y apellidos fueron creados al azar).
 
 Al clonar este repositorio y ejecutar la query es nuestro DBMS (DataBase Management System) tal como MySQL Workbench o HeidiSQL, ya tendremos la base para comenzar a generar votaciones.
 
