@@ -8,7 +8,7 @@ class RegionesModel {
         $this->conn = $db;
     }
 
-    public function getAllRegiones() {
+    public function getRegiones() {
         $sql = "SELECT * FROM regiones";
         $result = $this->conn->query($sql);
         if ($result->num_rows > 0) {

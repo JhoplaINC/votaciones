@@ -31,6 +31,100 @@
     background-color: var(--pogsorin-color-1);
 }
 
+/* FORMULARIO STYLE */
+.formulario-votacion {
+    align-items: center;
+    background-color: var(--pogsorin-color-1);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    color: var(--main-txt-color);
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    padding: 20px 40px;
+    width: 75%;
+}
+
+.formulario-votacion .form-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.formulario-votacion .form-group {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    width: 75%;
+}
+
+.formulario-votacion .form-group.checkbox-group {
+    justify-content: flex-start;
+}
+
+.form-group.checkbox-group label {
+    margin-left: 10px;
+    width: 90%;
+}
+
+.form-group.checkbox-group .checkbox-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 45px;
+}
+
+.checkbox-container input {
+    margin-right: 5px;
+}
+
+.checkbox-container input:not(:first-of-type) {
+    margin-left: 25px;
+}
+
+.checkbox-container .mensaje-error {
+    width: 100%;
+}
+
+.formulario-votacion .form-group.submit-form input {
+    width: fit-content;
+}
+
+.form-group.checkbox-group input {
+    width: 20px;
+}
+
+.form-group i {
+    background-color: var(--pogsorin-color-4);
+    padding: 10px 0;
+    text-align: center;
+    width: 5%;
+}
+
+.form-group input, .form-group select {
+    border: none;
+    width: 95%;
+}
+
+.form-group input {
+    height: 36px;
+    padding-left: 10px;
+}
+.form-group select {
+    height: 36px;
+    padding-left: 8px;
+}
+
+.form-group .mensaje-error {
+    width: fit-content;
+    text-decoration: underline;
+    color: red;
+}
+
 /* FOOTER STYLE */
 footer {
     background-color: var(--pogsorin-color-1);
