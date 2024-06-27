@@ -26,9 +26,63 @@
     --shadow-photo: 2px 2px 20px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
+/* GLOBAL STYLE */
+body {
+    font-family: 'Poppins'!important;
+}
+
+main {
+    margin-top: 120px;
+}
+
 /* NAVBAR STYLE */
 .navbar {
     background-color: var(--pogsorin-color-1);
+    height: 75px;
+}
+
+.nav-item .nav-link {
+    font-size: 18px;
+    margin: 0 20px;
+}
+
+.nav-item .nav-link.active {
+    text-decoration: underline;
+}
+
+/* INDEX STYLE */
+.index-container {
+    margin: 50px auto;
+}
+
+.index-container .info-container {
+    padding: 20px 40px;
+}
+
+.index-container .info-container:first-child {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.index-container .info-container:last-child {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.index-container .info-container:nth-child(odd) {
+    background-color: var(--pogsorin-color-1);
+}
+
+.index-container .info-container:nth-child(even) {
+    background-color: var(--pogsorin-color-3);
+}
+
+.info-container div img {
+    width: 100%;
+}
+
+.index-container .index-title {
+    font-size: 22px;
 }
 
 /* FORMULARIO STYLE */

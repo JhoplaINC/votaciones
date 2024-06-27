@@ -6,7 +6,7 @@ Las herramientas utilizadas fueron:
 
 * HTML
 * CSS
-* BOOTSTRAP
+* Bootstrap
 * PHP 8.1.10
 * Javascript
 * jQuery
