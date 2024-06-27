@@ -37,17 +37,17 @@
 
     <footer>
         <div class="footer-left-section footer-section">
-            <p>Web "designed" and developed by <span>Jorge Plaza</span></p>
+            <p>Web "diseñada" y Desarrollada por <span>Jorge Plaza</span></p>
         </div>
         <div class="br-line"></div>
         <div class="footer-right-section footer-section">
-            <p>You can Contact me through</p>
+            <p>Me pueden contactar a través de</p>
             <ul>
                 <li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/56983069105" target="_blank">+56 9 8306
                         9105</a></li>
                 <li><i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/jhoplainc"
                         target="_blank">Jorge Plaza</a></li>
-                <li><i class="fa-brands fa-github"></i><a href="https://github.com/JhoplaINC" target="_blank">Jhopla</a>
+                <li><i class="fa-brands fa-github"></i><a href="https://github.com/JhoplaINC" target="_blank">&#64;Jhopla</a>
                 </li>
                 <li><i class="fa-solid fa-at"></i><a
                         href="mailto:jorge.plaza.gj@gmail.com">jorge.plaza.gj&#64;gmail.com</a></li>

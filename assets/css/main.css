@@ -17,6 +17,7 @@
     --main-txt-color: rgb(10, 2, 58);
     --main-txt-color-hover: rgb(40, 62, 78);
     --main-txt-visited: rgb(28, 112, 161);
+    --navbar-color: #4c4c4c;
     --secondary-txt-color: rgb(22, 27, 58);
     --active-btn-bgc-color: rgb(29, 21, 73);
     --active-btn-txt-color: rgb(238, 238, 241);
@@ -42,7 +43,9 @@ main {
 }
 
 .nav-item .nav-link {
+    color: var(--navbar-color);
     font-size: 18px;
+    font-weight: 425;
     margin: 0 20px;
 }
 
@@ -145,7 +148,17 @@ main {
 }
 
 .formulario-votacion .form-group.submit-form input {
+    background-color: var(--pogsorin-color-4);
+    border-radius: 8px;
+    height: 42px;
+    margin-top: 36px;
+    padding: 10px 20px;
+    transition: .3s;
     width: fit-content;
+}
+
+.formulario-votacion .form-group.submit-form input:hover {
+    background-color: var(--pogsorin-color-4-hover);
 }
 
 .form-group.checkbox-group input {
